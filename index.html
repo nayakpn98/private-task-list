@@ -59,7 +59,12 @@
             <input type="checkbox" id="practice">
             <label for="practice">Practice</label>
         </div>
+        <input type="text" id="new-task" placeholder="New task">
+        <button onclick="addTask()">Add Task</button>
     </div>
+    <!-- Include Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,3 +1,17 @@
+// Initialize Firebase
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
 const correctPassword = "task"; // Set your password here
 
 function login() {
@@ -12,17 +26,25 @@ function login() {
         alert('Incorrect password');
     }
 }
-function addTask() {
-    const taskInput = document.getElementById('new-task');
-    const taskList = document.getElementById('task-list');
 
-    if (taskInput.value) {
-        const li = document.createElement('li');
-        li.className = 'task';
+function addTask() {
+    const taskInput = document.getElementById('new-task').value;
+
+    if (taskInput) {
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleString(); // Adjust formatting as needed
-        li.innerHTML = `<input type="checkbox"> ${taskInput.value} - ${formattedDate}`;
-        taskList.appendChild(li);
-        taskInput.value = '';
+
+        db.collection("tasks").add({
+            task: taskInput,
+            timestamp: formattedDate
+        })
+        .then(function(docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            // Clear input field after adding task
+            document.getElementById('new-task').value = '';
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
     }
 }

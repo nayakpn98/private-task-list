@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Private Task List</title>
+    <title>Task List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,29 +14,51 @@
         h1 {
             color: #333;
         }
-        .task {
-            margin: 5px 0;
-            padding: 10px;
+        .login-container, .task-list {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        .task input {
-            margin-right: 10px;
+        .task {
+            margin: 5px 0;
+        }
+        .task label {
+            display: block;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="login">
+    <div class="login-container" id="login-container">
         <h1>Please log in</h1>
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
     </div>
-    <div id="content" style="display: none;">
-        <h1>My Daily Tasks</h1>
-        <input type="text" id="new-task" placeholder="New task">
-        <button onclick="addTask()">Add Task</button>
-        <ul id="task-list"></ul>
+    <div class="task-list" id="task-list" style="display: none;">
+        <h1>Task List</h1>
+        <div class="task">
+            <input type="checkbox" id="wake-up">
+            <label for="wake-up">Wake up before 8 AM</label>
+        </div>
+        <div class="task">
+            <input type="checkbox" id="learn-programming">
+            <label for="learn-programming">Learn a programming language</label>
+        </div>
+        <div class="task">
+            <input type="checkbox" id="learn-networking">
+            <label for="learn-networking">Learn networking</label>
+        </div>
+        <div class="task">
+            <input type="checkbox" id="learn-kali-linux">
+            <label for="learn-kali-linux">Learn Kali Linux</label>
+        </div>
+        <div class="task">
+            <input type="checkbox" id="practice">
+            <label for="practice">Practice</label>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

@@ -12,3 +12,17 @@ function login() {
         alert('Incorrect password');
     }
 }
+function addTask() {
+    const taskInput = document.getElementById('new-task');
+    const taskList = document.getElementById('task-list');
+
+    if (taskInput.value) {
+        const li = document.createElement('li');
+        li.className = 'task';
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleString(); // Adjust formatting as needed
+        li.innerHTML = `<input type="checkbox"> ${taskInput.value} - ${formattedDate}`;
+        taskList.appendChild(li);
+        taskInput.value = '';
+    }
+}

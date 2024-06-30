@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Private Task List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .task {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .task input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h1>Please log in</h1>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+    <div id="content" style="display: none;">
+        <h1>My Daily Tasks</h1>
+        <input type="text" id="new-task" placeholder="New task">
+        <button onclick="addTask()">Add Task</button>
+        <ul id="task-list"></ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
